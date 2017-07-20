@@ -1,0 +1,22 @@
+{
+  "name": "fb-chatbot",
+  "version": "1.0.0",
+  "description": "Messenger Chatbot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincentNB/Facebook-Chatbot.git"
+  },
+  "keywords": [
+    "kappa"
+  ],
+  "author": "Vincent Schwartz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincentNB/Facebook-Chatbot/issues"
+  },
+  "homepage": "https://github.com/VincentNB/Facebook-Chatbot#readme"
+}
