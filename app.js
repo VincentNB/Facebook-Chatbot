@@ -39,6 +39,11 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }
+        if(messageAttachments){
+        	var lat = event.message.attachments[0].payload.coordinates.lat;
+			var lng = event.message.attachments[0].payload.coordinates.long;
+			sendMessage(event.sender.id, {text: "lat/lng: " + lat + "/" + lng});
+        }
     }
     res.sendStatus(200);
 });
@@ -60,5 +65,5 @@ function sendMessage(recipientId, message) {
             console.log('Error: ', response.body.error);
         }
     });
-     
+
 };
