@@ -42,7 +42,7 @@ app.post('/webhook', function (req, res) {
         // if(messageAttachments){
         	var lat = event.message.attachments[0].payload.coordinates.lat;
 			var lng = event.message.attachments[0].payload.coordinates.long;
-			sendMessage(event.sender.id, {text: "lat/lng: " + lat + "/" + lng});
+			sendMessage(event.sender.id, {location: "lat/lng: " + lat + "/" + lng});
         // }
     }
     res.sendStatus(200);
