@@ -81,13 +81,13 @@ function receivedMessage(event){
 	var messageAttachments = message.attachments;
 
 	if(messageText){
-		sendTextMsg(senderID);
+		sendTextMessage(senderID);
 	}else if(messageAttachments){
-		sendTextMsg(senderID, "Msg with attachment");
+		sendTextMessage(senderID, "Msg with attachment");
 	}
 }
 
-function sendTextMsg(recipientId, messageText){
+function sendTextMessage(recipientId, messageText){
 	var messageData = {
 		recipient: {id: recipientId}, message: {text: messageText}
 	};
