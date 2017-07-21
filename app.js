@@ -41,8 +41,6 @@ app.post('/webhook', function (req, res) {
     //     }
     var data = req.body;
 
-    //Check page subscription
-    if(data.object === 'page'){
     	//Iterate over each entry
     	data.entry.forEach(function(entry){
     		var pageID = entry.id;
@@ -57,8 +55,6 @@ app.post('/webhook', function (req, res) {
     		});
     	});
     	res.sendStatus(200);
-    }
-
    //       if(messageAttachments){
    //      	var lat = event.message.attachments[0].payload.coordinates.lat;
 			// var lng = event.message.attachments[0].payload.coordinates.long;
