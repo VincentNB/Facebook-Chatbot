@@ -36,14 +36,14 @@ app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
         var event = events[i];
-        // if (event.message && event.message.text) {
-        //     sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-        // }
-        // if(messageAttachments){
-        	var lat = event.message.attachments[0].payload.coordinates.lat;
-			var lng = event.message.attachments[0].payload.coordinates.long;
-			sendMessage(event.sender.id, {location: "lat/lng: " + lat + "/" + lng});
-        // }
+        if (event.message && event.message.text) {
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+        }
+   //       if(messageAttachments){
+   //      	var lat = event.message.attachments[0].payload.coordinates.lat;
+			// var lng = event.message.attachments[0].payload.coordinates.long;
+			// sendMessage(event.sender.id, {location: "lat/lng: " + lat + "/" + lng});
+   //       }
     }
     res.sendStatus(200);
 });
