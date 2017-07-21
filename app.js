@@ -33,7 +33,7 @@ app.get('/webhook', function (req, res) {
 
 // recieve messages
 app.post('/webhook', function (req, res) {  
-    var data = req.body.entry[0].messaging;
+    var events = req.body.entry[0].messaging;
     for (i = 0; i < events.length; i++) {
         var event = events[i];
         if (event.message && event.message.text) {
@@ -79,11 +79,6 @@ function sendMessage(recipientId, message) {
 //     		});
 //     	});
 //     	res.sendStatus(200);
-//    //       if(messageAttachments){
-//    //      	var lat = event.message.attachments[0].payload.coordinates.lat;
-// 			// var lng = event.message.attachments[0].payload.coordinates.long;
-// 			// sendMessage(event.sender.id, {location: "lat/lng: " + lat + "/" + lng});
-//    //       }
 // });
 
 // function receivedMessage(event){
