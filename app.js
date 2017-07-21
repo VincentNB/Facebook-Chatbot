@@ -39,8 +39,8 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }else if(event.message && event.message.attachments){
-        	var lat = event.message.attachments[0].payload.coordinates.lat
-			var lng = event.message.attachments[0].payload.coordinates.long
+        	var lat = event.message.attachments[0].payload.coordinates.lat;
+			var lng = event.message.attachments[0].payload.coordinates.long;
 			sendMessage(event.sender.id, {text: "Lat/Long: " + lat + " " + lng});
         }
     }
