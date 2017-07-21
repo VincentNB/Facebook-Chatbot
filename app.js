@@ -38,6 +38,10 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         if (event.message && event.message.text) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+        }else if(event.message && event.message.attachments){
+        	var lat = event.message.attachments[0].payload.coordinates.lat
+			var lng = event.message.attachments[0].payload.coordinates.long
+			sendMessage(event.sender.id, {text: "Lat/Long: " + lat + " " + lng});
         }
     }
     res.sendStatus(200);
@@ -60,8 +64,28 @@ function sendMessage(recipientId, message) {
             console.log('Error: ', response.body.error);
         }
     });
-
 };
+
+// curl -X POST -H "Content-Type: application/json" -d '{'
+// 	"recipient":{
+// 		"id":"USER_ID"
+// 	},
+// 	"message":{
+// 		"text":"Please share your location:",
+// 		"quick_replies":[
+// 		{
+// 			"content_type":"location",
+// 		}
+// 		]
+// 	}
+// '}' "https://graph.facebook.com/v2.6/me/messages?access_token=PAGE_ACCESS_TOKEN"
+
+//function send lat & lng
+function geoMessage(recipientId, text){
+	message = {
+		"location"
+	}
+}
 
 //     var data = req.body;
 
