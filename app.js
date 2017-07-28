@@ -32,7 +32,7 @@ app.post('/webhook', function (req, res) {
         if(event.message && event.message.attachments){
         	var lat = event.message.attachments[0].payload.coordinates.lat;
 			var lng = event.message.attachments[0].payload.coordinates.long;
-			sendMessage(event.sender.id, {text: "Lat/Long: " + lat + " " + lng});
+			sendMessage(event.sender.id, {text: "Lat: " + lat + "n Long:" + lng});
         }
     }
     res.sendStatus(200);
